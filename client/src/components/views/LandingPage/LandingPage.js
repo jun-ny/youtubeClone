@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { FaCode } from "react-icons/fa";
 import { Card, Avatar, Col, Typography, Row } from 'antd';
 import axios from 'axios';
 import moment from 'moment';
@@ -51,7 +50,7 @@ function LandingPage() {
             />
             <span>{video.writer.name} </span><br />
             <span style={{ marginLeft: '3rem' }}> {video.views}</span>
-            Views <span> {moment(video.createdAt).format("MMM Do YY")} </span>
+            - <span> {moment(video.createdAt).format("MMM Do YY")} </span>
         </Col>
 
     })
