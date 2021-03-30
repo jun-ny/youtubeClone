@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { Row, Col, List, Avatar } from 'antd'
 import axios from 'axios';
 import SideVideo from './Sections/SideVideo'
-import Subscribe from './Sections/Subscribe'
-import Comment from './Sections/Comment'
+import Subscriber from './Sections/Subscribe'
+import Comments from './Sections/Comment'
 import LikeDislikes from './Sections/LikeDislikes';
 
 function VideoDetailPage(props) {
 
-    
+   
+
     const videoId = props.match.params.videoId
     const [Video, setVideo] = useState([])
     const [CommentLists, setCommentLists] = useState([])
@@ -54,7 +55,7 @@ function VideoDetailPage(props) {
                         <video style={{ width: '100%' }} src={`http://localhost:5000/${Video.filePath}`} controls></video>
 
                         <List.Item
-                            actions={[<LikeDislikes video videoId={videoId} userId={localStorage.getItem('userId')}  />, <Subscribe userTo={Video.writer._id} userFrom={localStorage.getItem('userId')} />]}
+                            actions={[<LikeDislikes video videoId={videoId} userId={localStorage.getItem('userId')}  />, <Subscriber userTo={Video.writer._id} userFrom={localStorage.getItem('userId')} />]}
                         >
                             <List.Item.Meta
                                 avatar={<Avatar src={Video.writer && Video.writer.image} />}
@@ -64,7 +65,7 @@ function VideoDetailPage(props) {
                             <div></div>
                         </List.Item>
 
-                        <Comment CommentLists={CommentLists} postId={Video._id} refreshFunction={updateComment} />
+                        <Comments CommentLists={CommentLists} postId={Video._id} refreshFunction={updateComment} />
 
                     </div>
                 </Col>
@@ -84,5 +85,4 @@ function VideoDetailPage(props) {
 
 
 }
-
 export default VideoDetailPage
