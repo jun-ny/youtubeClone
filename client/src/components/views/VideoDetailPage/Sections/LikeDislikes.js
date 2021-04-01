@@ -109,7 +109,7 @@ function LikeDislikes(props) {
 
         if (DislikeAction !== null) {
 
-            Axios.post('/api/like/unDisLike', variable)
+            Axios.post('/api/like/unDislike', variable)
                 .then(response => {
                     if (response.data.success) {
 
@@ -123,7 +123,7 @@ function LikeDislikes(props) {
 
         } else {
 
-            Axios.post('/api/like/upDisLike', variable)
+            Axios.post('/api/like/upDislike', variable)
                 .then(response => {
                     if (response.data.success) {
 
